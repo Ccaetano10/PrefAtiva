@@ -75,7 +75,11 @@ O banco de dados do PrefAtiva é estruturado para organizar as principais inform
 
 ## Tecnologias Utilizadas
 
-*Em desenvolvimento.*
+- **HTML5** – Estruturação das páginas.
+- **CSS3** – Estilização e layout da aplicação.
+- **JavaScript** – Interatividade e funcionalidades.
+- **PHP** – Desenvolvimento da lógica e processamento no servidor.
+- **SQL** – Manipulação e gerenciamento do banco de dados.
 
 ## Desenvolvimento
 
