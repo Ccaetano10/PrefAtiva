@@ -1,0 +1,131 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9fafb;
+  color: #1f2937;
+}
+
+nav {
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.hero {
+  padding: 64px 24px;
+  text-align: center;
+  background-color: #1e3a8a;
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb, #1e3a8a);
+}
+
+.hero h2 {
+  margin-bottom: 12px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.hero p {
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.sobre {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.bloco {
+  margin-bottom: 24px;
+  padding: 24px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.bloco h3 {
+  margin-bottom: 12px;
+  color: #1e3a8a;
+  font-weight: 600;
+}
+
+.bloco p {
+  line-height: 1.7;
+}
+
+.bloco a {
+  color: #1d4ed8;
+}
+
+.passos {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.passo {
+  flex: 1;
+  padding: 16px;
+  background-color: #f3f4f6;
+  border-radius: 8px;
+}
+
+.passo h4 {
+  margin: 8px 0;
+  font-weight: 500;
+}
+
+.passo p {
+  font-size: 0.9rem;
+}
+
+.numero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #1e3a8a;
+  color: #fff;
+  font-weight: 600;
+}
+
+.lista {
+  padding-left: 20px;
+  line-height: 1.9;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags span {
+  padding: 6px 14px;
+  background-color: #dbeafe;
+  color: #1e3a8a;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.rodape {
+  padding: 20px;
+  text-align: center;
+  background-color: #1e3a8a;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 700px) {
+  .passos {
+    flex-direction: column;
+  }
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+}
