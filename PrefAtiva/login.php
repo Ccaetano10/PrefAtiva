@@ -7,11 +7,15 @@
     </head>
 
     <body>
-        <?php require_once "./PrefAtiva/nav.php"; ?>
+        <?php require_once "./nav.php"; ?>
 
-        <main class="auth">
+        <main class="auth auth-centro">
             <form action="loginbd.php" method="post" enctype="multipart/form-data">
             <h2>Entrar</h2>
+
+            <?php if (isset($_GET["erro"])): ?>
+                <p class="erro">E-mail ou senha incorretos.</p>
+            <?php endif; ?>
 
             <label for="email">E-mail</label>
             <input type="email" id="email" name="email" required>
@@ -20,6 +24,8 @@
             <input type="password" id="senha" name="senha" required>
 
             <button type="submit">Entrar</button>
+
+            <p>Não possui uma conta? <a href="./cadastro.php">Cadastre-se</a></p>
             </form>
         </main>
     </body>

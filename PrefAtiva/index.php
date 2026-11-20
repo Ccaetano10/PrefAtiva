@@ -5,11 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PrefAtiva</title>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/estilo.css">
-
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
         <link rel="stylesheet" href="css/estilo.css">
     </head>
@@ -21,6 +16,7 @@
 
             <section class="painel">
                 <h2>Reportar problema</h2>
+                <p class="subtitulo">Acesse sua conta para acompanhar suas denúncias</p>
                 <p class="dica">Clique no mapa para marcar o local do problema.</p>
 
                 <form action="api/salvar_problema.php" method="POST" enctype="multipart/form-data">

@@ -3,6 +3,11 @@ if (session_status() === PHP_SESSION_NONE) session_start();
     $logado = isset($_SESSION['usu_id']);
     $pagina = basename($_SERVER['PHP_SELF']);   
 ?>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
 <nav>
   <h1>PrefAtiva</h1>
   <ul>
