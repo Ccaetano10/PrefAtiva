@@ -12,6 +12,7 @@
         <main class="auth auth-centro">
             <form action="loginbd.php" method="post" enctype="multipart/form-data">
             <h2>Entrar</h2>
+            <p class="subtitulo">Acesse para acompanhar suas denúncias</p>
 
             <?php if (isset($_GET["erro"])): ?>
                 <p class="erro">E-mail ou senha incorretos.</p>

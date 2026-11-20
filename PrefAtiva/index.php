@@ -1,3 +1,20 @@
+<?php
+session_start();
+require_once "./_conexao.php";
+
+$categorias = $conexao->query("SELECT cat_id, cat_nome FROM categorias ORDER BY cat_nome")->fetchAll(PDO::FETCH_ASSOC);
+$cidades    = $conexao->query("SELECT cid_id, cid_nome FROM cidades ORDER BY cid_nome")->fetchAll(PDO::FETCH_ASSOC);
+
+$mensagens = [
+    "local"   => "Clique no mapa para marcar o local do problema.",
+    "dados"   => "Preencha categoria, cidade, endereço e descrição.",
+    "tamanho" => "Algum campo passou do tamanho permitido.",
+    "sistema" => "Não foi possível enviar a denúncia. Tente novamente."
+];
+$erro     = $_GET["erro"] ?? "";
+$enviado  = $_GET["enviado"] ?? "";
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -16,41 +33,60 @@
 
             <section class="painel">
                 <h2>Reportar problema</h2>
-                <p class="subtitulo">Acesse sua conta para acompanhar suas denúncias</p>
                 <p class="dica">Clique no mapa para marcar o local do problema.</p>
 
-                <form action="api/salvar_problema.php" method="POST" enctype="multipart/form-data">
+                <?php if (isset($mensagens[$erro])): ?>
+                <p class="erro"><?= $mensagens[$erro] ?></p>
+                <?php endif; ?>
 
-                <label for="titulo">Título</label>
-                <input type="text" id="titulo" name="titulo" placeholder="Ex.: Buraco na rua" required>
+                <?php if ($enviado): ?>
+                <p class="sucesso">
+                    <?= $enviado === "anonimo" ? "Denúncia enviada anonimamente." : "Denúncia enviada! Acompanhe em Minhas denúncias." ?>
+                </p>
+                <?php endif; ?>
+
+                <form action="indexbd.php" method="POST" enctype="multipart/form-data">
 
                 <label for="categoria">Categoria</label>
                 <select id="categoria" name="categoria" required>
                     <option value="">Selecione...</option>
-                    <option value="1">Buraco</option>
-                    <option value="2">Iluminação</option>
-                    <option value="3">Lixo</option>
+                    <?php foreach ($categorias as $c): ?>
+                    <option value="<?= (int) $c["cat_id"] ?>"><?= htmlspecialchars($c["cat_nome"]) ?></option>
+                    <?php endforeach; ?>
+                </select>
+
+                <label for="cidade">Cidade</label>
+                <select id="cidade" name="cidade" required>
+                    <option value="">Selecione...</option>
+                    <?php foreach ($cidades as $c): ?>
+                    <option value="<?= (int) $c["cid_id"] ?>"><?= htmlspecialchars($c["cid_nome"]) ?></option>
+                    <?php endforeach; ?>
                 </select>
 
                 <label for="descricao">Descrição</label>
                 <textarea id="descricao" name="descricao" rows="4" placeholder="Descreva o problema" required></textarea>
 
-                <label for="foto">Foto (opcional)</label>
-                <input type="file" id="foto" name="foto" accept="image/*">
+                <label for="endereco">Endereço</label>
+                <input type="text" id="endereco" name="endereco" placeholder="Clique no mapa ou digite" required>
+
+                <label for="numero">Número (opcional)</label>
+                <input type="text" id="numero" name="numero" maxlength="10">
+
+                <label for="referencia">Ponto de referência (opcional)</label>
+                <input type="text" id="referencia" name="referencia" placeholder="Ex.: em frente à padaria">
 
                 <p id="local-selecionado" class="local">Nenhum local selecionado</p>
 
-                <input type="hidden" id="lat" name="latitude" required>
-                <input type="hidden" id="lng" name="longitude" required>
-                <input type="hidden" id="endereco" name="endereco">
+                <input type="hidden" id="lat" name="latitude">
+                <input type="hidden" id="lng" name="longitude">
 
-                <?php if (isset($_SESSION['usu_id'])): ?>
-                <label class="anonimo">
+                <?php if (isset($_SESSION["usu_id"])): ?>
+                    <label class="anonimo">
                     <input type="checkbox" name="anonimo" value="1">
                     Enviar anonimamente
-                </label>
+                    </label>
                 <?php else: ?>
-                <p class="dica">Você não está conectado, então a denúncia será enviada de forma anônima.</p>
+                    <p class="dica">Você não está conectado, então a denúncia será enviada de forma anônima.</p>
                 <?php endif; ?>
 
                 <button type="submit">Enviar denúncia</button>

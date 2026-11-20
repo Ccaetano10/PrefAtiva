@@ -35,7 +35,7 @@ if ($senha1 !== $senha2) {
 try {
     require_once "./_conexao.php";
 
-    $verifica = $conexao->prepare("SELECT usu_id FROM usuario WHERE usu_email = :email");
+    $verifica = $conexao->prepare("SELECT usu_id FROM usuarios WHERE usu_email = :email");
     $verifica->bindValue(":email", $email);
     $verifica->execute();
 
@@ -44,7 +44,7 @@ try {
         exit();
     }
 
-    $comandoSQL = $conexao->prepare("INSERT INTO usuario
+    $comandoSQL = $conexao->prepare("INSERT INTO usuarios
         (usu_nome, usu_email, usu_telefone, usu_senha, usu_tipo)
         VALUES
         (:usu_nome, :usu_email, :usu_telefone, :usu_senha, :usu_tipo)");
@@ -61,7 +61,6 @@ try {
     exit();
 
 } catch (PDOException $erro) {
-    error_log($erro->getMessage());
-    header("Location: cadastro.php?erro=sistema");
+    echo "ERRO: " . $erro->getMessage(); // só para testar, remova depois
     exit();
 }

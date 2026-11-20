@@ -180,6 +180,13 @@ nav a.btn-nav:hover {
   color: #6b7280;
 }
 
+.auth label {
+  display: block;
+  margin: 14px 0 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
 .auth input {
   width: 100%;
   padding: 12px;
@@ -195,21 +202,17 @@ nav a.btn-nav:hover {
   box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.15);
 }
 
-.auth label {
-  display: block;
-  margin: 12px 0 4px;
-  font-weight: 500;
-}
-
 .auth button {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 24px;
   padding: 12px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   background-color: #1e3a8a;
   color: #fff;
+  font-family: inherit;
   font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -228,11 +231,104 @@ nav a.btn-nav:hover {
   color: #1d4ed8;
 }
 
-.erro {
+.erro,
+.sucesso {
   margin-bottom: 8px;
   padding: 10px;
-  background-color: #fee2e2;
-  color: #991b1b;
   border-radius: 6px;
   font-size: 0.9rem;
+  text-align: left;
+}
+
+.erro {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.sucesso {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+/* PÁGINAS INTERNAS (Minhas denúncias etc.) */
+.pagina {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.pagina h2 {
+  color: #1e3a8a;
+  font-weight: 600;
+}
+
+.pagina .subtitulo {
+  margin: 4px 0 24px;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.tabela-wrap {
+  overflow-x: auto; /* rola na horizontal no celular */
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabela th,
+.tabela td {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.tabela thead {
+  background-color: #1e3a8a;
+  color: #fff;
+}
+
+.tabela tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tabela tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.status {
+  display: inline-block;
+  padding: 4px 12px;
+  background-color: #dbeafe;
+  color: #1e3a8a;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.vazio {
+  padding: 48px 24px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.btn-link {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 20px;
+  background-color: #1e3a8a;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.btn-link:hover {
+  background-color: #1d4ed8;
 }

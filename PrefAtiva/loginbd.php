@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 $email = trim($_POST["email"] ?? "");
 $senha = $_POST["senha"] ?? "";
 
-$sql = "SELECT * FROM usuario WHERE usu_email = :email";
+$sql = "SELECT * FROM usuarios WHERE usu_email = :email";
 $comandoSQL = $conexao->prepare($sql);
 $comandoSQL->bindValue(":email", $email);
 $comandoSQL->execute();
@@ -30,9 +30,9 @@ if ($usuario && password_verify($senha, $usuario["usu_senha"])) {
     $_SESSION["tempo_secao"] = time() + 120;
 
     if ($usuario["usu_tipo"] == "admin") {
-        header("Location: admin1/visualizar.php");
+        header("Location: index.php");
     } else {
-        header("Location: usuario/visualizar.php");
+        header("Location: index.php");
     }
     exit();
 }
