@@ -1,6 +1,6 @@
 <?php
 
-$dns = "mysql:host=127.0.0.1;dbname=fatec2sem2026;charset=utf8";
+$dns = "mysql:host=127.0.0.1;dbname=prefativa;charset=utf8";
 $user = "root";
 $pass = "";
 

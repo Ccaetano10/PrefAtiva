@@ -12,7 +12,7 @@ if (
     session_unset();
     session_destroy();
 
-    header("Location: /trabalho_roonie/index.php");
+    header("Location: ./index.php?erro=tempo_sessao");
     exit();
 }
 

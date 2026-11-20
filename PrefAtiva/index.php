@@ -48,6 +48,15 @@
                 <input type="hidden" id="lng" name="longitude" required>
                 <input type="hidden" id="endereco" name="endereco">
 
+                <?php if (isset($_SESSION['usu_id'])): ?>
+                <label class="anonimo">
+                    <input type="checkbox" name="anonimo" value="1">
+                    Enviar anonimamente
+                </label>
+                <?php else: ?>
+                <p class="dica">Você não está conectado, então a denúncia será enviada de forma anônima.</p>
+                <?php endif; ?>
+
                 <button type="submit">Enviar denúncia</button>
                 </form>
             </section>

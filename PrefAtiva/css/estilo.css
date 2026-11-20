@@ -46,6 +46,16 @@ nav a:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+nav a.btn-nav {
+  background-color: #fff;
+  color: #1e3a8a;
+  font-weight: 600;
+}
+
+nav a.btn-nav:hover {
+  background-color: #dbeafe;
+}
+
 /* MAIN */
 
 .container {
@@ -118,4 +128,12 @@ nav a:hover {
 
 #mapa {
   flex: 1; /* ocupa todo o espaço restante */
+}
+
+.anonimo {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0;
+  font-weight: 400;
 }
