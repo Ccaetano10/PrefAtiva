@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 $email = trim($_POST["email"] ?? "");
 $senha = $_POST["senha"] ?? "";
 
-$sql = "SELECT * FROM usuarios WHERE usu_email = :email";
+$sql = "SELECT * FROM usuario WHERE usu_email = :email";
 $comandoSQL = $conexao->prepare($sql);
 $comandoSQL->bindValue(":email", $email);
 $comandoSQL->execute();

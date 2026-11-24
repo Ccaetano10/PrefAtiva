@@ -11,17 +11,11 @@ $descricao  = trim($_POST["descricao"] ?? "");
 $endereco   = trim($_POST["endereco"] ?? "");
 $numero     = trim($_POST["numero"] ?? "");
 $referencia = trim($_POST["referencia"] ?? "");
-$lat        = filter_input(INPUT_POST, "latitude", FILTER_VALIDATE_FLOAT);
-$lng        = filter_input(INPUT_POST, "longitude", FILTER_VALIDATE_FLOAT);
 $cat_id     = filter_input(INPUT_POST, "categoria", FILTER_VALIDATE_INT);
 $cid_id     = filter_input(INPUT_POST, "cidade", FILTER_VALIDATE_INT);
+$lat        = filter_input(INPUT_POST, "latitude", FILTER_VALIDATE_FLOAT);
+$lng        = filter_input(INPUT_POST, "longitude", FILTER_VALIDATE_FLOAT);
 
-// local no mapa
-if ($lat === false || $lat === null || $lng === false || $lng === null
-    || $lat < -90 || $lat > 90 || $lng < -180 || $lng > 180) {
-    header("Location: index.php?erro=local");
-    exit();
-}
 
 if (!$cat_id || !$cid_id) {
     header("Location: index.php?erro=dados");
@@ -66,8 +60,6 @@ try {
         ":cat_id"     => $cat_id,
         ":cid_id"     => $cid_id
     ]);
-
-    $pro_id = $conexao->lastInsertId(); // será usado para salvar as fotos depois
 
     header("Location: index.php?enviado=" . ($usu_id ? "1" : "anonimo"));
     exit();
