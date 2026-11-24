@@ -67,18 +67,13 @@ $enviado  = $_GET["enviado"] ?? "";
                 <textarea id="descricao" name="descricao" rows="4" placeholder="Descreva o problema" required></textarea>
 
                 <label for="endereco">Endereço</label>
-                <input type="text" id="endereco" name="endereco" placeholder="Clique no mapa ou digite" required>
+                <input type="text" id="endereco" name="endereco" placeholder="Ex.: Rua Francisco ..." required>
 
                 <label for="numero">Número (opcional)</label>
-                <input type="text" id="numero" name="numero" maxlength="10">
+                <input type="text" id="numero" name="numero" maxlength="10" placeholder="Ex.: 123">
 
                 <label for="referencia">Ponto de referência (opcional)</label>
                 <input type="text" id="referencia" name="referencia" placeholder="Ex.: em frente à padaria">
-
-                <p id="local-selecionado" class="local">Nenhum local selecionado</p>
-
-                <input type="hidden" id="lat" name="latitude">
-                <input type="hidden" id="lng" name="longitude">
 
                 <?php if (isset($_SESSION["usu_id"])): ?>
                     <label class="anonimo">

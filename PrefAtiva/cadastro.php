@@ -57,5 +57,7 @@ $erro = $_GET["erro"] ?? "";
                 <p>Já possui uma conta? <a href="login.php">Entrar</a></p>
             </form>
         </main>
+
+        <?php require_once "./footer.php"; ?>
     </body>
 </html>

@@ -29,5 +29,7 @@
             <p>Não possui uma conta? <a href="./cadastro.php">Cadastre-se</a></p>
             </form>
         </main>
+
+        <?php require_once "./footer.php"; ?>
     </body>
 </html>
