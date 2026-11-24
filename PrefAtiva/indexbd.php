@@ -13,6 +13,8 @@ $numero     = trim($_POST["numero"] ?? "");
 $referencia = trim($_POST["referencia"] ?? "");
 $cat_id     = filter_input(INPUT_POST, "categoria", FILTER_VALIDATE_INT);
 $cid_id     = filter_input(INPUT_POST, "cidade", FILTER_VALIDATE_INT);
+$lat        = filter_input(INPUT_POST, "latitude", FILTER_VALIDATE_FLOAT);
+$lng        = filter_input(INPUT_POST, "longitude", FILTER_VALIDATE_FLOAT);
 
 
 if (!$cat_id || !$cid_id) {
@@ -41,7 +43,7 @@ try {
     require_once "./_conexao.php";
 
     $comandoSQL = $conexao->prepare("INSERT INTO problemas
-        (pro_descricao, pro_status, pro_data_cadastro,
+        (pro_descricao, pro_status, pro_data_cadastro, pro_latitude, pro_longitude,
          pro_endereco, pro_numero, pro_referencia, usu_id, cat_id, cid_id)
         VALUES
         (:descricao, 'Enviada', NOW(), :lat, :lng,
@@ -49,6 +51,8 @@ try {
 
     $comandoSQL->execute([
         ":descricao"  => $descricao,
+        ":lat"        => round($lat, 8),
+        ":lng"        => round($lng, 8),
         ":endereco"   => $endereco,
         ":numero"     => $numero !== "" ? $numero : null,
         ":referencia" => $referencia !== "" ? $referencia : null,

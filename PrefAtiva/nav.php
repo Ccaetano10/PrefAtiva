@@ -15,7 +15,7 @@ if (session_status() === PHP_SESSION_NONE) session_start();
   <ul>
     <li><a href="index.php" class="<?= $pagina == 'index.php' ? 'ativo' : '' ?>">Home</a></li>
     <li><a href="sobre.php" class="<?= $pagina == 'sobre.php' ? 'ativo' : '' ?>">Sobre</a></li>
-    <li><a href="contato.php" class="<?= $pagina == 'contato.php' ? 'ativo' : '' ?>">Contato</a></li>
+    <li><a href="contatos.php" class="<?= $pagina == 'contatos.php' ? 'ativo' : '' ?>">Contato</a></li>
 
     <?php if ($logado): ?>
       <li><a href="minhas_denuncias.php" class="<?= $pagina == 'minhas_denuncias.php' ? 'ativo' : '' ?>">Minhas denúncias</a></li>

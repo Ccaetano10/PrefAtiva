@@ -35,7 +35,7 @@ if ($senha1 !== $senha2) {
 try {
     require_once "./_conexao.php";
 
-    $verifica = $conexao->prepare("SELECT usu_id FROM usuarios WHERE usu_email = :email");
+    $verifica = $conexao->prepare("SELECT usu_id FROM usuario WHERE usu_email = :email");
     $verifica->bindValue(":email", $email);
     $verifica->execute();
 
